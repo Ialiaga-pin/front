@@ -1,4 +1,6 @@
-/* Punto único de configuración para la futura API. */
+/* Punto único de configuración de la API. */
 window.APP_CONFIG = Object.freeze({
-  API_BASE_URL: 'https://backend-bli.onrender.com'
+    API_BASE_URL: (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+        ? 'http://127.0.0.1:8080'                     // desarrollo local
+        : 'https://backend-bli.onrender.com'            // producción: tu URL real de Render
 });
