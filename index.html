@@ -90,6 +90,9 @@
                 <div class="instruction-warning">
                   <strong>Importante:</strong> la procedencia del URL debe corresponder a páginas de tipo noticias, blogs, corporativas o enciclopedias. Cualquier URL que no pertenezca a estas categorías no podrá realizar el respectivo análisis.
                 </div>
+                <div class="button-group" style="margin-top: clamp(6px, 2.5cqw, 12px);">
+                <button type="button" class="minimal-btn" id="btn-url-method">Conoce como lo evaluamos</button>
+                </div>
               </div>
             </div>
           </div>
@@ -119,7 +122,7 @@
                 </div>
                 <p id="error-banner" class="book-errata hidden" role="alert"></p>
                 <div class="document-result hidden" id="document-result" aria-live="polite">
-                  <span class="document-result-label">Resultado del análisis · DEMOSTRACIÓN</span>
+                  <span class="document-result-label">Resultado del análisis</span>
                   <div class="document-result-main">
                     <strong id="document-ai-score">--%</strong>
                     <span>patrones compatibles con uso de IA</span>
@@ -150,6 +153,9 @@
                 </ol>
                 <div class="instruction-warning">
                   <strong>Importante:</strong> este análisis no constituye una prueba definitiva de autoría mediante IA. Es un análisis heurístico basado en distintos patrones observables y comprobables en el contenido.
+                </div>
+                <div class="button-group" style="margin-top: clamp(6px, 2.5cqw, 12px);">
+                <button type="button" class="minimal-btn" id="btn-pdf-method">Conoce como lo evaluamos</button>
                 </div>
               </div>
             </div>
@@ -288,6 +294,9 @@
               <p class="parchment-note">Este análisis es heurístico. Los patrones observados pueden aparecer también en textos escritos por personas. El porcentaje no constituye una prueba definitiva de autoría mediante IA.</p>
             </div>
           </div>
+          <div id="method-panel" data-parchment-panel class="hidden">
+          <div id="method-content" class="parchment-body"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -297,6 +306,7 @@
   <script src="js/navigation.js" defer></script>
   <script src="js/book.js" defer></script>
   <script src="js/modal.js" defer></script>
+  <script src="js/method-popups.js" defer></script>
   <script src="js/app.js" defer></script>
   <script src="js/url-analyzer.js" defer></script>
   <script src="js/document-analyzer.js" defer></script>

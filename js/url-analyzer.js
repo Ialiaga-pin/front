@@ -61,7 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function actualizarPergamino(datos) {
         if (resDominio) resDominio.textContent = datos.dominio || 'No disponible';
-        if (resConfianza) resConfianza.textContent = datos.confianza || '0%';
+        if (resConfianza) {
+            resConfianza.textContent = datos.confianza || '0%';
+            resConfianza.className = nivelConfianza(parseInt(datos.confianza, 10) || 0);
+        }
         if (resPalabras) resPalabras.textContent = formatoNumero(datos.palabras);
         if (resTema) resTema.textContent = datos.tema || 'Sin detectar';
         if (resMotivo) resMotivo.textContent = datos.motivo || 'Sin detalles adicionales';
@@ -142,14 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 actualizarPergamino(lastResult);
                 setStatus(desdeCache
-                    ? 'Análisis completado correctamente (servido desde caché).'
+                    ? 'Análisis completado correctamente'
                     : `Análisis completado correctamente en ${(result.datos.duracionMs / 1000).toFixed(1)} s.`,
                     'success');
                 openParchment();
             } catch (error) {
                 console.error('Error en el análisis de URL:', error);
                 lastResult = null;
-                setStatus('No fue posible completar el análisis. Verifica que el backend esté activo.', 'error');
+                setStatus('Error al conectar con el servidor', 'error');
             } finally {
                 btnSubmit.textContent = originalText;
                 btnSubmit.disabled = false;

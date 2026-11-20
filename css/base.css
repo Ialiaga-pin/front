@@ -393,6 +393,22 @@ body.is-book-open .env-controls-top {
   margin-bottom: 15px;
   text-align: justify;
 }
+.iso-body h4 {
+color: var(--accent-color);
+font-size: 0.98rem;
+margin: 16px 0 8px;
+}
+.iso-body ul {
+margin: 0 0 15px;
+padding-left: 22px;
+}
+.iso-body li {
+margin-bottom: 8px;
+text-align: justify;
+}
+.iso-body li strong {
+color: var(--accent-hover);
+}
 /* Estados de interfaz y reducción de movimiento */
 .analysis-status {
   min-height: 1.2em;

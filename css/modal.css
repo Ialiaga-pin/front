@@ -107,6 +107,18 @@
   max-height: 90vh;
   padding: 2.4rem 2.3rem 2rem;
 }
+.parchment-popup:has(#method-panel:not(.hidden)) {
+width: min(760px, 96vw);
+max-height: 90vh;
+padding: 2.4rem 2.3rem 2rem;
+}
+@media (max-width: 520px) {
+.parchment-popup:has(#method-panel:not(.hidden)) {
+width: 100%;
+max-height: 100%;
+padding: 2.3rem .9rem 1.1rem;
+}
+}
 
 .url-report-grid {
   display: grid;
@@ -157,10 +169,10 @@
   margin-right: 6px;
 }
 
-#res-confianza {
-  font-weight: 600;
-  color: #5a7a3a;
-}
+#res-confianza { font-weight: 600; }
+#res-confianza.alta  { color: #3f6b2a; }
+#res-confianza.media { color: #8a5a12; }
+#res-confianza.baja  { color: #8c3a32; }
 .apa-card {
   border: 1px solid rgba(92,64,51,.23);
   border-radius: 6px;
@@ -456,4 +468,52 @@
   .related-source-card,
   .evidence-card,
   .ai-highlight { animation: none !important; transition: none !important; }
+}
+/* ==========================================
+MÉTRICAS DE FUENTES RELACIONADAS
+Chips de confiabilidad y conteo de palabras
+generados por url-analyzer.js desde el backend.
+========================================== */
+.source-metrics {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 0 0 6px;
+}
+.source-score {
+    padding: 2px 8px;
+    border: 1px solid;
+    border-radius: 3px;
+    font: 700 .55rem/1.4 'Lora', serif;
+    letter-spacing: .4px;
+}
+.source-score.level-alta {
+    color: #3f6b2a;
+    border-color: rgba(90, 122, 58, .55);
+    background: rgba(90, 122, 58, .12);
+}
+.source-score.level-media {
+    color: #8a5a12;
+    border-color: rgba(186, 135, 42, .55);
+    background: rgba(186, 135, 42, .12);
+}
+.source-score.level-baja {
+    color: #8c3a32;
+    border-color: rgba(140, 58, 50, .55);
+    background: rgba(140, 58, 50, .12);
+}
+.source-words {
+    color: #5c4033;
+    font: .58rem/1.4 'Lora', serif;
+    opacity: .85;
+}
+/* Palabras analizadas en el informe principal */
+#res-palabras {
+    font-weight: 600;
+    color: #5c4033;
+}
+@media (max-width: 520px) {
+    .source-score { font-size: .52rem; padding: 2px 6px; }
+    .source-words { font-size: .52rem; }
 }
